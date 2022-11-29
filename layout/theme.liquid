@@ -234,61 +234,390 @@
       document.documentElement.classList.add('shopify-design-mode');
     }
     </script>
+    {{ 'fixedsticky.css' | asset_url | stylesheet_tag }}
+    {{ 'slick.css' | asset_url | stylesheet_tag }}
+    {{ 'common.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'jquery-3.2.1.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'jquery.cookie.js' | asset_url }}" defer="defer"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">    
   </head>
 
   <body class="gradient">
-    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-      {{ "accessibility.skip_to_text" | t }}
-    </a>
+    {%- if template == 'index' -%}
+      <div id="pace-wapper">
+        <div class="bg">
 
-    {%- if settings.cart_type == 'drawer' -%}
-      {%- render 'cart-drawer' -%}
-    {%- endif -%}
+          <div class="logo start">
+            <h1>
+              <a href="index.html" class="logo-mark"><img class="load lazyload" data-src="{{ 'logomark.svg' | asset_url }}" alt="CAFE STEEN"></a>
+            </h1>
 
-    {% section 'announcement-bar' %}
-    {% section 'header' %}
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {{ content_for_layout }}
-    </main>
+            <nav>
+              <ul class="smooth">
+                <li><a href="index.html#concept"><span>CONCEPT</span></a></li>
+                <li><a href="index.html#menu"><span>MENU</span></a></li>
+                <li><a href="index.html#gallery"><span>GALLERY</span></a></li>
+                <li><a href="index.html#goods"><span>GOODS</span></a></li>
+                <li><a href="index.html#news"><span>NEWS</span></a></li>
+                <li><a href="index.html#access"><span>ACCESS</span></a></li>
+              </ul>
+            </nav>
+          </div>
 
-    {% section 'footer' %}
+          <div class="target2"></div>
+          <div class="target3"></div>
+          <div class="target4"></div>
 
-    <ul hidden>
-      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
-      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
-    </ul>
+          <section id="header">
+            <div class="title">
+              <h2><a href="index.html"><img class="load lazyload" data-src="{{ 'ttl_header.png' | asset_url }}" alt="家族でたのしむカフェ" width="125" height="94"></a></h2>
+            </div>
+            <div class="wrapper">
+              <div class="flex">
+                <div class="right">
+                  <div class="top-slider">
+                    <div class="scene-wrapper">
+                      <div class="scene-photo">
+                        <div class="slide"><img class="load lazyload" data-src="{{ 'main01.png' | asset_url }}" alt=""></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="copy">
+                    <p>One day of "CAFE STEEN".</p>
+                    <span>Behavior of small children, cleaned up.<br>
+                      Do not mind today, slowly and relaxing, relaxing.<br>
+                      Let's surround the delicious food, family, everyone in circles.</span>
+                  </div>
+                </div>
+                <div class="left">
+                  <div class="ticker">
+                    <div class="load-ticker"></div>
+                  </div>
 
-    <script>
-      window.shopUrl = '{{ request.origin }}';
-      window.routes = {
-        cart_add_url: '{{ routes.cart_add_url }}',
-        cart_change_url: '{{ routes.cart_change_url }}',
-        cart_update_url: '{{ routes.cart_update_url }}',
-        cart_url: '{{ routes.cart_url }}',
-        predictive_search_url: '{{ routes.predictive_search_url }}'
-      };
+                  <div class="target1">
+                    <p>
+                      <a href="#header"><img class="load lazyload" data-src="{{ 'logomark.svg' | asset_url }}" alt="CAFE STEEN"></a>
+                    </p>
+                  </div>
 
-      window.cartStrings = {
-        error: `{{ 'sections.cart.cart_error' | t }}`,
-        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
-      }
+                  <address>
+                    <a href="index.html"><img class="load lazyload" data-src="{{ 'logotypo.png' | asset_url }}" alt="OYAKO CAFE &amp; Donuts CAFE STEEN"></a>
+                    <p>〒560-0081 大阪府豊中市新千里北町<br>
+                      2-20-14-105 北町近隣センター内<br>
+                      TEL. <span class="tel-linktext">‭06-6170-7698</span><br class="pc">
+                      OPEN. 10:00- 月曜定休日</p>
+                  </address>
 
-      window.variantStrings = {
-        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
-        soldOut: `{{ 'products.product.sold_out' | t }}`,
-        unavailable: `{{ 'products.product.unavailable' | t }}`,
-      }
+                  <ul class="sns">
+                    <li><a href="https://www.facebook.com/CAFE-STEEN-2138413153143535/" target="_blank"><img class="load lazyload" data-src="/common/img/fb.png" alt="facebook" width="24" height="24"></a></li>
+                    <li><a href="https://www.instagram.com/cafe_steen/" target="_blank"><img class="load lazyload" data-src="{{ 'ig.png' | asset_url }}" alt="instagram" width="24" height="24"></a></li>
+                  </ul>
 
-      window.accessibilityStrings = {
-        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
-        shareSuccess: `{{ 'general.share.success_message' | t }}`,
-        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
-        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
-      }
-    </script>
+                  <p class="open"><img class="load lazyload" data-src="{{ 'open.png' | asset_url }}" alt="2018.12.12 NEW OPEN" width="300" height="259"></p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-    {%- if settings.predictive_search_enabled -%}
-      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+          <section id="about">
+            
+          </section>
+
+          <section id="concept">
+            <ul class="concept-slider">
+              <li><span class="load lazyload" data-bg="{{ 'concept01.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept02.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept03.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept04.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept05.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept06.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept07.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept08.png' | asset_url }}"></span></li>
+            </ul>
+            <div class="wrapper">
+              <div class="wa-l"></div>
+              <div class="wa-r"></div>
+              <h2 class="sec-title">CONCEPT<img class="load lazyload" data-src="{{ 'ttl_concept.png' | asset_url }}" alt="親子で" width="69" height="114"></h2>
+              <h3>親はゆっくり、子は楽しく、<br>親子にやさしいカフェ。</h3>
+              <div class="text">
+                <div class="text-block">
+                  <p>小さなお子さまの<br>
+                    お行儀、お片付け。<br>
+                    今日は気にせず、<br>
+                    ゆっくりほっこり、<br>
+                    くつろいで。</p>
+                  <p>おいしいものを、<br>
+                    家族で、みんなで、<br>
+                    輪になって囲もう。</p>
+                </div>
+                <div class="text-block">
+                  <p>そんな願いが、<br>
+                    焼きドーナツの<br>
+                    まーるい形に、<br>
+                    こめられてるとか<br>
+                    いないとか・・・</p>
+                  <p>親子カフェSTEEN、<br>
+                    新千里北町から<br>
+                    はじまります。</p>
+                </div>
+                <h4># OYAKO CAFE<br>
+                  # SENRICHUOU</h4>
+              </div>
+            </div>
+          </section>
+
+          {% section 'about-slider' %}
+
+          <section id="gallery">
+            <div class="wrapper">
+              <div class="flex">
+                <h2 class="sec-title">GALLERY<img class="load lazyload" data-src="{{ 'ttl_gallery.png' | asset_url }}" alt="たのしむ" width="39" height="113"></h2>
+                <h3><div><span><strong>こども椅子、<br>
+                  キッズスペース、<br>
+                  おむつ台</strong>も完備。<br>
+                  こどもたちを<br>
+                  中心に考えた<br>
+                  やさしい空間作り。</span></div></h3>
+              </div>
+              <div class="slider-gallery">
+                <div class="gallery-photo">
+                  <div class="slide">
+                    <picture>
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery08.jpg' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery08.jpg' | asset_url }}" alt="インテリア : ">
+                    </picture>
+                    <div class="text">
+                      <h4>INTERIOR</h4>
+                      <p>親子でも、大勢でも。子供たちは遊び、パパママは安心してくつろぐ、そんな暖かい雰囲気が漂う居心地の良い空間が魅力のカフェです。</p>
+                    </div>
+                  </div>
+                  <div class="slide">
+                    <picture>
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery01.jpg' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery01.jpg' | asset_url }}" alt="エントランス : ">
+                    </picture>
+                    <div class="text">
+                      <h4>ENTRANCE</h4>
+                      <p>明るい日差しが差し込む開放的な窓、木製のドアがお出迎え。店主お気に入りのエントランス。</p>
+                    </div>
+                  </div>
+                  <div class="slide">
+                    <picture>
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery02.jpg' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery02.jpg' | asset_url }}" alt="ソファとテーブル : ">
+                    </picture>
+                    <div class="text">
+                      <h4>SOFA&amp;TABLE</h4>
+                      <p>家族で囲む広いテーブルや、大勢でゆったりくつろげるソファ席もご用意。遊ぶお子さまを見ながらゆっくりとお過ごしいただけます。</p>
+                    </div>
+                  </div>
+                  <div class="slide">
+                    <picture>
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery03.jpg' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery03.jpg' | asset_url }}" alt="キッズスペース : ">
+                    </picture>
+                    <div class="text">
+                      <h4>KIDS SPACE</h4>
+                      <p>どの座席からでもお子さまが見れるよう、キッズスペースの壁には小さな窓が開いています。お食事しながら楽しく遊ぶお子さまを見守ることができます。</p>
+                    </div>
+                  </div>
+                  <div class="slide">
+                    <picture>
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery04.jpg' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery04.jpg' | asset_url }}" alt="カウンター : ">
+                    </picture>
+                    <div class="text">
+                      <h4>COUNTER</h4>
+                      <p>ブロック塀と木目の天板が落ち着けるバーカウンター。店主と語らうことのできるこの場所は、一人で訪れてもどこかほっと一息つくことのできるすすめの座席です。</p>
+                    </div>
+                  </div>
+                  <div class="slide">
+                    <picture>
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery05.jpg' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery05.jpg' | asset_url }}" alt="物販スペース : ">
+                    </picture>
+                    <div class="text">
+                      <h4>GOODS</h4>
+                      <p>忙しいママだって、可愛いものやおしゃれなものが大好き。ハンドメイドで作られた、個性的なアクセサリーやステーショナリー、こどもグッズなどを販売しております。</p>
+                    </div>
+                  </div>
+                  <div class="slide">
+                    <picture>
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery06.jpg' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery06.jpg' | asset_url }}" alt="キッチン : ">
+                    </picture>
+                    <div class="text">
+                      <h4>KITCHEN</h4>
+                      <p>明るく開放的なキッチン。タイルとスチール素材が男前なキッチンスペースです。夫婦で営む仲睦まじい姿も、実は隠れたほっこりポイント。</p>
+                    </div>
+                  </div>
+                  <div class="slide">
+                    <picture>
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery07.jpg' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery07.jpg' | asset_url }}" alt="トイレ : ">
+                    </picture>
+                    <div class="text">
+                      <h4>TOILET</h4>
+                      <p>オムツ替えスペースも完備した、ゆったり広めのトイレ。お子さまの世話も快適です。</p>
+                    </div>
+                  </div>
+                </div>
+                <ul class="gallery-nav">
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery08.jpg' | asset_url }}"><span>INTERIOR</span></a></li>
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery01.jpg' | asset_url }}"><span>ENTRANCE</span></a></li>
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery02.jpg' | asset_url }}"><span>SOFA&amp;<br class="sp">TABLE</span></a></li>
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery03.jpg' | asset_url }}"><span>KIDS SPACE</span></a></li>
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery04.jpg' | asset_url }}"><span>COUNTER</span></a></li>
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery05.jpg' | asset_url }}"><span>GOODS</span></a></li>
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery06.jpg' | asset_url }}"><span>KITCHEN</span></a></li>
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery07.jpg' | asset_url }}"><span>TOILET</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="goods">
+            <div class="wrapper">
+              <div class="flex">
+                <h2 class="sec-title"><img class="load lazyload" data-src="{{ 'ttl_goods.png' | asset_url }}" alt="買う" width="46" height="58">GOODS</h2>
+                <h3>店内では忙しいママでもおしゃれを楽しめるように、<br class="pc">ハンドメイドグッズを販売しています。</h3>
+              </div>
+              <div class="goods-list">
+                <div><img class="load lazyload" data-src="{{ 'good01.png' | asset_url }}" alt="スタイ"><p>スタイ</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good02.png' | asset_url }}" alt="ヘアアクセサリー"><p>ヘアアクセサリー</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good03.png' | asset_url }}" alt="豆イス"><p>豆イス</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good04.png' | asset_url }}" alt="クラフトバッグ"><p>クラフトバッグ</p></div>
+                <div class="moji"><img class="load lazyload pc" data-src="{{ 'handmade.png' | asset_url }}" alt="HANDMADE"><img class="load lazyload sp" data-src="/common/img/sp_handmade.png" alt="HANDMADE"></div>
+                <div><img class="load lazyload" data-src="{{ 'good05.png' | asset_url }}" alt="レザーケース"><p>レザーケース</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good06.png' | asset_url }}" alt="アクセサリー"><p>アクセサリー</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good07.png' | asset_url }}" alt="消しゴムハンコ"><p>消しゴムハンコ</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good08.png' | asset_url }}" alt="タオルポーチ"><p>タオルポーチ</p></div>
+              </div>
+            </div>
+          </section>
+
+          <section id="news">
+            <div class="wrapper">
+              <h2 class="sec-title">NEWS<img class="load lazyload" data-src="{{ 'ttl_news.png' | asset_url }}" alt="知る" width="46" height="58"></h2>
+              <div class="load-event"></div>
+
+              <div class="flex">
+                <div class="load-news"></div>
+              </div>
+
+              <p class="news-btn"><a href="archives/list.html">NEWS LIST</a></p>
+            </div>
+          </section>
+
+          <section id="access">
+            <div class="wrapper">
+              <h2 class="sec-title">ACCESS<img class="load lazyload" data-src="{{ 'ttl_access.png' | asset_url }}" alt="行く" width="37" height="79"></h2>
+              <div class="flex">
+                <p class="open"><img class="load lazyload" data-src="{{ 'open.png' | asset_url }}" alt="" width="300" height="259"></p>
+                <img class="load lazyload" data-src="{{ 'access.jpg' | asset_url }}" alt="CAFE STEEN 外観" width="375" height="259">
+                <div class="address">
+                  <a href="index.html"><img class="load lazyload" data-src="{{ 'logotypo.png' | asset_url }}" alt="OYAKO CAFE &amp; Donuts CAFE STEEN"></a>
+                  <address>
+                    〒560-0081 大阪府豊中市新千里北町2-20-14-105 北町近隣センター内<br>
+                    TEL. <span class="tel-linktext">06-6170-7698</span> OPEN. 10:00- 月曜定休日<br>
+                    最寄バス停：阪急バス 北町二丁目<span class="pc"> ／ </span><br class="sp">最寄駅：千里中央駅<br>
+                    駐車場あり ／ 
+                  </address>
+                  <ul class="sns">
+                    <li><a href="https://www.facebook.com/CAFE-STEEN-2138413153143535/" target="_blank"><img class="load lazyload" data-src="{{ 'fb.png' | asset_url }}" alt="facebook" width="24" height="24"></a></li>
+                    <li><a href="https://www.instagram.com/cafe_steen/" target="_blank"><img class="load lazyload" data-src="{{ 'ig.png' | asset_url }}" alt="instagram" width="24" height="24"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="sp map-root"><a href="http://maps.google.com/maps?saddr=&amp;daddr=%e5%a4%a7%e9%98%aa%e5%ba%9c%e8%b1%8a%e4%b8%ad%e5%b8%82%e6%96%b0%e5%8d%83%e9%87%8c%e5%8c%97%e7%94%ba2-20-14-105" target="_blank">GoogleMapで経路を調べる</a></div>
+              <div class="map">
+                <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCDsy6y6TEoUNM8qC0qZVz8_McYgv9A-iw"></script>
+                <div id="gmap"></div>
+                <div class="root">
+                  <p>北町近隣センターの<br>駐車場から<br>STEENまでの道順（2分）</p>
+                  <ul class="fbox">
+                    <li><img class="load lazyload" data-src="{{ 'root01.jpg' | asset_url }}" alt="こちらが北町近隣センター"><span>こちらが北町近隣センター</span></li>
+                    <li><img class="load lazyload" data-src="{{ 'root02.jpg' | asset_url }}" alt="駐車場から出て右折"><span>駐車場から出て右折</span></li>
+                    <li><img class="load lazyload" data-src="{{ 'root03.jpg' | asset_url }}" alt="スーパーを右手に直進"><span>スーパーを右手に直進</span></li>
+                    <li><img class="load lazyload" data-src="{{ 'root04.jpg' | asset_url }}" alt="美容院と薬局の間を右折"><span>美容院と薬局の間を右折</span></li>
+                    <li><img class="load lazyload" data-src="{{ 'root05.jpg' | asset_url }}" alt="徐々に見えてきます"><span>徐々に見えてきます</span></li>
+                    <li><img class="load lazyload" data-src="{{ 'root06.jpg' | asset_url }}" alt="到着です！"><span>到着です！</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <script src="{{ 'app_rsp.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'fixedsticky.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'jquery.matchHeight-min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'lazysizes.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'ls.unveilhooks.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'ofi.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'jquery.easing.1.3.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'TweenMax.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'CustomEase.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'jquery.inview.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'pace.min.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'common.js' | asset_url }}" defer="defer"></script>
+    {%- else -%}
+      <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+        {{ "accessibility.skip_to_text" | t }}
+      </a>
+
+      {%- if settings.cart_type == 'drawer' -%}
+        {%- render 'cart-drawer' -%}
+      {%- endif -%}
+
+      {% section 'announcement-bar' %}
+      {% section 'header' %}
+      <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+        {{ content_for_layout }}
+      </main>
+
+      {% section 'footer' %}
+
+      <ul hidden>
+        <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+        <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+      </ul>
+
+      <script>
+        window.shopUrl = '{{ request.origin }}';
+        window.routes = {
+          cart_add_url: '{{ routes.cart_add_url }}',
+          cart_change_url: '{{ routes.cart_change_url }}',
+          cart_update_url: '{{ routes.cart_update_url }}',
+          cart_url: '{{ routes.cart_url }}',
+          predictive_search_url: '{{ routes.predictive_search_url }}'
+        };
+
+        window.cartStrings = {
+          error: `{{ 'sections.cart.cart_error' | t }}`,
+          quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
+        }
+
+        window.variantStrings = {
+          addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+          soldOut: `{{ 'products.product.sold_out' | t }}`,
+          unavailable: `{{ 'products.product.unavailable' | t }}`,
+        }
+
+        window.accessibilityStrings = {
+          imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
+          shareSuccess: `{{ 'general.share.success_message' | t }}`,
+          pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
+          playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
+        }
+      </script>
+
+      {%- if settings.predictive_search_enabled -%}
+        <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+      {%- endif -%}
+    {%- endif -%}      
   </body>
 </html>
