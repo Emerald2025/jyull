@@ -249,17 +249,17 @@
 
           <div class="logo start">
             <h1>
-              <a href="index.html" class="logo-mark"><img class="load lazyload" data-src="{{ 'logomark.svg' | asset_url }}" alt="CAFE STEEN"></a>
+              <a href="index.html" class="logo-mark"><img class="load lazyload" data-src="{{ 'logo.png' | asset_url }}" alt="CAFE STEEN"></a>
             </h1>
 
             <nav>
               <ul class="smooth">
-                <li><a href="index.html#concept"><span>CONCEPT</span></a></li>
-                <li><a href="index.html#menu"><span>MENU</span></a></li>
-                <li><a href="index.html#gallery"><span>GALLERY</span></a></li>
-                <li><a href="index.html#goods"><span>GOODS</span></a></li>
-                <li><a href="index.html#news"><span>NEWS</span></a></li>
-                <li><a href="index.html#access"><span>ACCESS</span></a></li>
+                <li><a href="index.html#concept"><span>JYULL'S FOOD</span></a></li>
+                <li><a href="index.html#menu"><span>VOICE<small>”わんちゃんたちの声”</small></span></a></li>
+                <li><a href="index.html#gallery"><span>SELECT ITEM</span></a></li>
+                <li><a href="index.html#goods"><span>NEWS</span></a></li>
+                <li><a href="index.html#news"><span>MEMEBER</span></a></li>
+                <li><a href="index.html#access"><span>CART</span></a></li>
               </ul>
             </nav>
           </div>
@@ -268,25 +268,20 @@
           <div class="target3"></div>
           <div class="target4"></div>
 
-          <section id="header">
+          <section id="header" style="background-image: url('{{ 'bg-part1.png' | asset_url }}')">
             <div class="title">
-              <h2><a href="index.html"><img class="load lazyload" data-src="{{ 'ttl_header.png' | asset_url }}" alt="家族でたのしむカフェ" width="125" height="94"></a></h2>
+              <h2><img src="{{ 'top-text.png' | asset_url }}" alt="天然成分の高プロテインフードをお届け致します"></h2>
             </div>
             <div class="wrapper">
               <div class="flex">
                 <div class="right">
+                  <div class="footprint"><img src="{{ 'bg-part2.png' | asset_url }}" alt=""></div>
                   <div class="top-slider">
                     <div class="scene-wrapper">
                       <div class="scene-photo">
                         <div class="slide"><img class="load lazyload" data-src="{{ 'main01.png' | asset_url }}" alt=""></div>
                       </div>
                     </div>
-                  </div>
-                  <div class="copy">
-                    <p>One day of "CAFE STEEN".</p>
-                    <span>Behavior of small children, cleaned up.<br>
-                      Do not mind today, slowly and relaxing, relaxing.<br>
-                      Let's surround the delicious food, family, everyone in circles.</span>
                   </div>
                 </div>
                 <div class="left">
@@ -296,43 +291,33 @@
 
                   <div class="target1">
                     <p>
-                      <a href="#header"><img class="load lazyload" data-src="{{ 'logomark.svg' | asset_url }}" alt="CAFE STEEN"></a>
+                      <a href="#header"><img class="load lazyload" data-src="{{ 'logo.png' | asset_url }}" alt=""></a>
                     </p>
                   </div>
 
                   <address>
-                    <a href="index.html"><img class="load lazyload" data-src="{{ 'logotypo.png' | asset_url }}" alt="OYAKO CAFE &amp; Donuts CAFE STEEN"></a>
-                    <p>〒560-0081 大阪府豊中市新千里北町<br>
-                      2-20-14-105 北町近隣センター内<br>
-                      TEL. <span class="tel-linktext">‭06-6170-7698</span><br class="pc">
-                      OPEN. 10:00- 月曜定休日</p>
+                    <a href="index.html"><img class="load lazyload" data-src="{{ 'logo2.png' | asset_url }}" alt=""></a>
+                    <p class="text-log-desc"><strong>生涯の友のために。</strong><br>Grain Feeds正規販売店</p>
                   </address>
 
                   <ul class="sns">
-                    <li><a href="https://www.facebook.com/CAFE-STEEN-2138413153143535/" target="_blank"><img class="load lazyload" data-src="/common/img/fb.png" alt="facebook" width="24" height="24"></a></li>
+                    <li><a href="https://www.facebook.com/CAFE-STEEN-2138413153143535/" target="_blank"><img class="load lazyload" data-src="{{ 'fb.png' | asset_url }}" alt="facebook" width="24" height="24"></a></li>
                     <li><a href="https://www.instagram.com/cafe_steen/" target="_blank"><img class="load lazyload" data-src="{{ 'ig.png' | asset_url }}" alt="instagram" width="24" height="24"></a></li>
                   </ul>
 
-                  <p class="open"><img class="load lazyload" data-src="{{ 'open.png' | asset_url }}" alt="2018.12.12 NEW OPEN" width="300" height="259"></p>
                 </div>
               </div>
             </div>
           </section>
 
-          <section id="about">
-            
-          </section>
+          {% section 'about-slider' %}
 
           <section id="concept">
             <ul class="concept-slider">
               <li><span class="load lazyload" data-bg="{{ 'concept01.png' | asset_url }}"></span></li>
               <li><span class="load lazyload" data-bg="{{ 'concept02.png' | asset_url }}"></span></li>
               <li><span class="load lazyload" data-bg="{{ 'concept03.png' | asset_url }}"></span></li>
-              <li><span class="load lazyload" data-bg="{{ 'concept04.png' | asset_url }}"></span></li>
-              <li><span class="load lazyload" data-bg="{{ 'concept05.png' | asset_url }}"></span></li>
-              <li><span class="load lazyload" data-bg="{{ 'concept06.png' | asset_url }}"></span></li>
-              <li><span class="load lazyload" data-bg="{{ 'concept07.png' | asset_url }}"></span></li>
-              <li><span class="load lazyload" data-bg="{{ 'concept08.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept04.png' | asset_url }}"></span></li>             
             </ul>
             <div class="wrapper">
               <div class="wa-l"></div>
@@ -366,7 +351,6 @@
             </div>
           </section>
 
-          {% section 'about-slider' %}
 
           <section id="gallery">
             <div class="wrapper">
@@ -526,22 +510,6 @@
                   <ul class="sns">
                     <li><a href="https://www.facebook.com/CAFE-STEEN-2138413153143535/" target="_blank"><img class="load lazyload" data-src="{{ 'fb.png' | asset_url }}" alt="facebook" width="24" height="24"></a></li>
                     <li><a href="https://www.instagram.com/cafe_steen/" target="_blank"><img class="load lazyload" data-src="{{ 'ig.png' | asset_url }}" alt="instagram" width="24" height="24"></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="sp map-root"><a href="http://maps.google.com/maps?saddr=&amp;daddr=%e5%a4%a7%e9%98%aa%e5%ba%9c%e8%b1%8a%e4%b8%ad%e5%b8%82%e6%96%b0%e5%8d%83%e9%87%8c%e5%8c%97%e7%94%ba2-20-14-105" target="_blank">GoogleMapで経路を調べる</a></div>
-              <div class="map">
-                <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCDsy6y6TEoUNM8qC0qZVz8_McYgv9A-iw"></script>
-                <div id="gmap"></div>
-                <div class="root">
-                  <p>北町近隣センターの<br>駐車場から<br>STEENまでの道順（2分）</p>
-                  <ul class="fbox">
-                    <li><img class="load lazyload" data-src="{{ 'root01.jpg' | asset_url }}" alt="こちらが北町近隣センター"><span>こちらが北町近隣センター</span></li>
-                    <li><img class="load lazyload" data-src="{{ 'root02.jpg' | asset_url }}" alt="駐車場から出て右折"><span>駐車場から出て右折</span></li>
-                    <li><img class="load lazyload" data-src="{{ 'root03.jpg' | asset_url }}" alt="スーパーを右手に直進"><span>スーパーを右手に直進</span></li>
-                    <li><img class="load lazyload" data-src="{{ 'root04.jpg' | asset_url }}" alt="美容院と薬局の間を右折"><span>美容院と薬局の間を右折</span></li>
-                    <li><img class="load lazyload" data-src="{{ 'root05.jpg' | asset_url }}" alt="徐々に見えてきます"><span>徐々に見えてきます</span></li>
-                    <li><img class="load lazyload" data-src="{{ 'root06.jpg' | asset_url }}" alt="到着です！"><span>到着です！</span></li>
                   </ul>
                 </div>
               </div>
