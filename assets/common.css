@@ -10241,7 +10241,6 @@ body {
     .sec-title > * {
       margin: calc((100vw - 0vw * 2) / 120 * 0) calc((100vw - 0vw * 2) / 120 * 2) calc((100vw - 0vw * 2) / 120 * 0) calc((100vw - 0vw * 2) / 120 * 2); } }
   .sec-title:before {
-    content: "[";
     font-size: 24px;
     font-size: 2.4rem;
     font-weight: 400;
@@ -10253,7 +10252,6 @@ body {
       .sec-title:before {
         margin-right: calc((100vw - 0vw * 2) / 120 * 3); } }
   .sec-title:after {
-    content: "]";
     font-size: 24px;
     font-size: 2.4rem;
     font-weight: 400;
@@ -10672,7 +10670,7 @@ body {
   font-size: 15px;
   font-size: 1.5rem;
   line-height: 1; }
-  #header .wrapper .ticker ul li p.date span:before {
+  #header .wrapper .ticker ul li p.date span:after {
     content: ' / ';
     color: transparent;
     text-shadow: 1px 0 0 #e9e1d1, 0 0 0 #333333, 1px 0 0 #e9e1d1; }
@@ -11102,8 +11100,6 @@ body {
   #concept .text {
     position: relative;
     z-index: 6;
-    -ms-writing-mode: tb-rl;
-    writing-mode: vertical-rl;
     float: right; }
     @media screen and (min-width: 768px) {
       #concept .text {
@@ -11131,7 +11127,9 @@ body {
       letter-spacing: normal;
       line-height: 1.2;
       font-size: 36px;
-      font-size: 3.6rem; }
+      font-size: 3.6rem; 
+      writing-mode: initial;
+    }
       @media screen and (min-width: 768px) {
         #concept .text h4 {
           margin-right: calc((100vw - 0vw * 2) / 120 * 9); } }
@@ -11141,61 +11139,57 @@ body {
   #concept .wa-l {
     position: absolute;
     z-index: 1;
-    background: url("../img/wa_l.png") no-repeat;
-    background-size: contain; }
+    background: url('https://cdn.shopify.com/s/files/1/0685/3682/8204/t/1/assets/wa_l.png') no-repeat;
+    background-size: contain; 
+    display: block;
+  }
     @media screen and (min-width: 768px) {
       #concept .wa-l {
-        top: calc((100vw - 0vw * 2) / 120 * 14); } }
-    @media screen and (min-width: 1601px) {
-      #concept .wa-l {
-        top: calc((100vw - 0vw * 2) / 120 * 14); } }
+        top: calc((100vw - 0vw * 2) / 120 * 19); 
+      } 
+    }
     @media screen and (min-width: 768px) {
       #concept .wa-l {
-        right: calc((100vw - 0vw * 2) / 120 * 19); } }
-    @media screen and (min-width: 1601px) {
-      #concept .wa-l {
-        right: calc((100vw - 0vw * 2) / 120 * 19); } }
+        right: 228px; 
+      } 
+    }
     @media screen and (min-width: 768px) {
       #concept .wa-l {
-        width: calc((100vw - 0vw * 2) / 120 * 24); } }
-    @media screen and (min-width: 1601px) {
-      #concept .wa-l {
-        width: calc((100vw - 0vw * 2) / 120 * 24); } }
+        width: 178px;
+      } 
+    }
     @media screen and (min-width: 768px) {
       #concept .wa-l {
-        height: calc((100vw - 0vw * 2) / 120 * 48); } }
-    @media screen and (min-width: 1601px) {
-      #concept .wa-l {
-        height: calc((100vw - 0vw * 2) / 120 * 48); } }
+        height: 388px;
+      } 
+    }
   #concept .wa-r {
     z-index: 3;
     position: absolute;
-    background: url("../img/wa_r.png") no-repeat;
-    background-size: contain; }
+    background: url('https://cdn.shopify.com/s/files/1/0685/3682/8204/t/1/assets/wa_r.png') no-repeat;
+    background-size: contain; 
+    display: block;
+  }
     @media screen and (min-width: 768px) {
       #concept .wa-r {
-        top: calc((100vw - 0vw * 2) / 120 * 14); } }
-    @media screen and (min-width: 1601px) {
-      #concept .wa-r {
-        top: calc((100vw - 0vw * 2) / 120 * 14); } }
+        top: calc((100vw - 0vw * 2) / 120 * 19); 
+      } 
+    }
     @media screen and (min-width: 768px) {
       #concept .wa-r {
-        right: calc((100vw - 0vw * 2) / 120 * -5); } }
-    @media screen and (min-width: 1601px) {
-      #concept .wa-r {
-        right: calc((100vw - 0vw * 2) / 120 * -5); } }
+        right: 50px;
+      } 
+    }
     @media screen and (min-width: 768px) {
       #concept .wa-r {
-        width: calc((100vw - 0vw * 2) / 120 * 24); } }
-    @media screen and (min-width: 1601px) {
-      #concept .wa-r {
-        width: calc((100vw - 0vw * 2) / 120 * 24); } }
+        width: 178px;
+      } 
+    }
     @media screen and (min-width: 768px) {
       #concept .wa-r {
-        height: calc((100vw - 0vw * 2) / 120 * 48); } }
-    @media screen and (min-width: 1601px) {
-      #concept .wa-r {
-        height: calc((100vw - 0vw * 2) / 120 * 48); } }
+        height: 388px;
+      } 
+    }
   #concept .concept-slider {
     position: absolute;
     z-index: 2;
@@ -11368,16 +11362,16 @@ body {
     #menu .slider-menu {
       margin-top: calc((100vw - 0vw * 2) / 120 * 3); } }
   #menu .slider-menu .menu-wrapper {
-    mask-image: url("../img/mask_menu.png");
-    -webkit-mask-image: url("../img/mask_menu.png");
+    mask-image: url('https://cdn.shopify.com/s/files/1/0685/3682/8204/t/1/assets/mask_menu.png');
+    -webkit-mask-image: url('https://cdn.shopify.com/s/files/1/0685/3682/8204/t/1/assets/mask_menu.png');
     mask-size: cover;
     -webkit-mask-size: cover; }
     @media screen and (min-width: 768px) {
       #menu .slider-menu .menu-wrapper {
-        margin-bottom: calc((100vw - 0vw * 2) / 120 * -6.2); } }
-    @media screen and (min-width: 1601px) {
-      #menu .slider-menu .menu-wrapper {
-        margin-bottom: calc((100vw - 0vw * 2) / 120 * -6.2); } }
+        margin: 0 auto; 
+        width: 669px;
+      } 
+    }
   #menu .slider-menu .menu-photo img {
     width: 100%; }
   #menu .slider-menu .menu-nav {
@@ -11592,6 +11586,9 @@ body {
   border: none; }
 #gallery .slider-gallery .gallery-photo .slide {
   position: relative; }
+#gallery .slider-gallery .gallery-photo .slide img{
+  width: 100%;
+}
 #gallery .slider-gallery .gallery-photo .text {
   border-radius: 0 16px 0 16px;
   background: rgba(255, 255, 255, 0.97);
@@ -11647,7 +11644,7 @@ body {
   -ms-flex-pack: justify;
   justify-content: space-between; }
   #gallery .slider-gallery .gallery-nav li {
-    width: 12.5%; }
+    width: 33.3%; }
     #gallery .slider-gallery .gallery-nav li a {
       position: relative;
       display: block;

@@ -1,51 +1,57 @@
 <section id="menu">
-  <div class="wrapper">
+  <div class="wrapper"> 
     <h2 class="sec-title">
-      <span class="sec-main-ttl">About</span>
-      <span class="sec-sub-ttl">JYULL's FOODとは</span>
+      <span class="sec-main-ttl">{{ section.settings.heading }}</span>
+      <span class="sec-sub-ttl">{{ section.settings.headline }}</span>    
     </h2>
-    <h3 class="right">親子も<br class="sp">笑顔で<br class="sp">ほおばる、</h3>
-    <h3 class="left">ゆったり<br class="sp">おいしい<br class="sp">時間。</h3>
     <div class="slider-menu">
       <div class="menu-wrapper">
         <div class="menu-photo">
-          <div class="slide"><img class="load lazyload" data-src="{{ 'about1.png' | asset_url }}" width="1140" height="715" alt="ドーナツ : 丁度良い甘さとしっとりした食感が幸せを呼ぶ、まーるい味です。"></div>
-          <div class="slide"><img class="load lazyload" data-src="{{ 'about2.png' | asset_url }}" width="1140" height="715" alt="モーニング : ホカホカのバターたっぷりトースト、バランスのとれた副菜、特製ブレンドのコーヒー。"></div>
-          <div class="slide"><img class="load lazyload" data-src="{{ 'about3.png' | asset_url }}" width="1140" height="715" alt="ランチ : おすすめはチキンカレー。手軽に食べられてお腹も満足なランチメニュー。"></div>
-          <div class="slide"><img class="load lazyload" data-src="{{ 'about4.png' | asset_url }}" width="1140" height="715" alt="スイーツ : 贅沢な味わいのケーキと特製焙煎のコーヒーで、幸せなおやつ時間。"></div>
-          <div class="slide"><img class="load lazyload" data-src="{{ 'about5.png' | asset_url }}" width="1140" height="715" alt="ドリンク : CAFE STEENの特製ブレンドのコーヒー。フルーティーな香りとほのかな甘味。"></div>
+          {% for block in section.blocks %}  
+            {% case block.type %}
+          
+              {% when 'slide' %}  
+                <div class="slide"
+                  {{ block.shopify_attributes }}
+                  role="group"
+                  tabindex="-1"
+                >
+                  <img class="load lazyload" data-src="{{ block.settings.image.src | img_url: "large" }}" width="1140" height="715" alt="フ">
+                </div>
+            {% endcase %} 
+          {% endfor %}        
         </div>
       </div>
       <ul class="menu-nav">
-        <li><a href="javascript:void(0);"><span>ドーナツ</span></a></li>
-        <li><a href="javascript:void(0);"><span>モーニング</span></a></li>
-        <li><a href="javascript:void(0);"><span>ランチ</span></a></li>
-        <li><a href="javascript:void(0);"><span>スイーツ</span></a></li>
-        <!-- <li><a href="javascript:void(0);"><span>アラカルト</span></a></li> -->
-        <li><a href="javascript:void(0);"><span>ドリンク</span></a></li>
+        {% for block in section.blocks %}  
+          {% case block.type %}
+        
+            {% when 'slide' %}  
+              <li><a href="javascript:void(0);"><span>{{ block.settings.heading }}</span></a></li>
+          {% endcase %}
+        {% endfor %}
       </ul>
       <ul class="menu-text">
-        <li>お口に入れた瞬間に、フワッと広がる豊かな卵と牛乳の風味。<br>
-          丁度良い甘さとしっとりした食感が幸せを呼ぶ、まーるい味です。お持ち帰りOK！<br>
-          ちょっとした手土産としても大人気のドーナツです。味はプレーン、ナッツ、ラムレーズン、ココア、抹茶をご用意。</li>
-        <li>明るい日差しの差し込む店内で、のんびりたっぷり朝ごはんはいかが。<br>
-          ホカホカのバターたっぷりトースト、バランスのとれた副菜、特製ブレンドのコーヒー。<br>
-          朝は甘いもので脳に栄養を！ホイップクリームとあんこが幸せ気分になれる小倉トーストも人気です。</li>
-        <li>手軽にきちんとお腹を満たせる、ランチメニューもご用意。<br>
-          スパイスにこだわってじっくり煮込んだ柔らかチキンのカレーや、フレッシュな味わいのパスタ。<br>
-          お子さま用のクリーミーなキッズカレーもございます。元気なお昼ごはんでしっかりパワーをチャージ！
-          <span>※現在、ランチメニューはカレーやパンサンドのみのご提供となっております。<br>
-            パスタやピザは準備が整い次第、ご提供いたします。</span></li>
-        <li>一口で幸せな気分になる、贅沢な味わいのケーキたち。<br>
-          濃厚な風味が、くせになると評判です。特製ブレンドのコーヒー・ソフトドリンクとあわせてぜひお楽しみください。<br>
-          ケーキはドーナツ同様、お持ち帰りもできますので手土産などにもご利用いただけます。</li>
-        <li>CAFE STEENの特製ブレンドのコーヒー。フルーティーな香りとほのかな甘味。<br>
-          妊婦やカフェインが苦手な方にデカフェもご用意。<br>
-          コーヒーはお持ち帰り用のドリップパックもご用意しております。</li>
+        {% for block in section.blocks %}  
+          {% case block.type %}
+        
+            {% when 'slide' %}  
+              <li>
+                <p class="menu-text-title">{{ block.settings.subheading }}</p><br>
+                <p class="menu-text-body">
+                  {{ block.settings.content }}
+                </p>
+              </li>
+          {% endcase %}
+        {% endfor %}             
       </ul>
     </div>
   </div>
 </section>
+
+{%- if request.design_mode -%}
+  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 {% schema %}
 {
@@ -56,37 +62,56 @@
     {
       "type": "text",
       "id": "heading",
-      "default": "Multimedia collage",
-      "label": "test"
-    }
-  ],
+      "default": "About",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "default": "JYULL's FOODとは",
+      "label": "Head Line"
+    }    
+  ],  
   "blocks": [
     {
-      "type": "image",
-      "name": "about_slider_img",
+      "type": "slide",
+      "name": "about-slider-block",
+      "limit": 5,
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "test"
+          "label": "t:sections.slideshow.blocks.slide.settings.image.label"
         },
         {
-          "type": "checkbox",
-          "id": "image_padding",
-          "default": false,
-          "label": "test",
-          "info": "test"
-        }
+          "type": "text",
+          "id": "heading",
+          "default": "Image slide",
+          "label": "t:sections.slideshow.blocks.slide.settings.heading.label"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "default": "Tell your brand's story through images",
+          "label": "t:sections.slideshow.blocks.slide.settings.subheading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }        
       ]
     }
   ],
-  "max_blocks": 3,
   "presets": [
     {
       "name": "custom-about-slider",
       "blocks": [
         {
-          "type": "image"
+          "type": "slide"
+        },
+        {
+          "type": "slide"
         }
       ]
     }

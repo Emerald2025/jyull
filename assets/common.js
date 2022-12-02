@@ -300,7 +300,7 @@ $(function() {
 
     steen.concept = {
       init:function() {
-        steen.concept.random();
+        // steen.concept.random();
         steen.concept.start();
       },
       random:function() {

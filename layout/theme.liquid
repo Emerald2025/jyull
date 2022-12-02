@@ -249,7 +249,7 @@
 
           <div class="logo start">
             <h1>
-              <a href="index.html" class="logo-mark"><img class="load lazyload" data-src="{{ 'logo.png' | asset_url }}" alt="CAFE STEEN"></a>
+              <a href="index.html" class="logo-mark"><img class="load lazyload" data-src="{{ 'logo.png' | asset_url }}" alt="JYULL'S FOOD"></a>
             </h1>
 
             <nav>
@@ -263,7 +263,6 @@
               </ul>
             </nav>
           </div>
-
           <div class="target2"></div>
           <div class="target3"></div>
           <div class="target4"></div>
@@ -286,7 +285,21 @@
                 </div>
                 <div class="left">
                   <div class="ticker">
-                    <div class="load-ticker"></div>
+                    <div class="load-ticker">
+                      <ul>
+                      {% assign category = 'news' %}
+                      {% unless blogs[category].empty? or blogs[category].articles.size == 0 %}
+                           {% for article in blogs[category].articles %}
+                            <li>
+                              <p class="date"><span>NEWS</span>{{ article.published_at | date: '%Y.%m.%d' }}</p>
+                              <a href="{{ article.url }}">
+                                <p class="text"><span>{{ article.title }}</span></p>
+                              </a>
+                            </li>
+                           {% endfor %}
+                      {% endunless %}
+                      </ul>                     
+                    </div>
                   </div>
 
                   <div class="target1">
@@ -301,8 +314,8 @@
                   </address>
 
                   <ul class="sns">
-                    <li><a href="https://www.facebook.com/CAFE-STEEN-2138413153143535/" target="_blank"><img class="load lazyload" data-src="{{ 'fb.png' | asset_url }}" alt="facebook" width="24" height="24"></a></li>
-                    <li><a href="https://www.instagram.com/cafe_steen/" target="_blank"><img class="load lazyload" data-src="{{ 'ig.png' | asset_url }}" alt="instagram" width="24" height="24"></a></li>
+                    <li><a href="" target="_blank"><img class="load lazyload" data-src="{{ 'fb.png' | asset_url }}" alt="facebook" width="24" height="24"></a></li>
+                    <li><a href="" target="_blank"><img class="load lazyload" data-src="{{ 'line.png' | asset_url }}" alt="line" width="24" height="24"></a></li>
                   </ul>
 
                 </div>
@@ -317,144 +330,76 @@
               <li><span class="load lazyload" data-bg="{{ 'concept01.png' | asset_url }}"></span></li>
               <li><span class="load lazyload" data-bg="{{ 'concept02.png' | asset_url }}"></span></li>
               <li><span class="load lazyload" data-bg="{{ 'concept03.png' | asset_url }}"></span></li>
-              <li><span class="load lazyload" data-bg="{{ 'concept04.png' | asset_url }}"></span></li>             
+              <li><span class="load lazyload" data-bg="{{ 'concept04.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept01.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept02.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept03.png' | asset_url }}"></span></li>
+              <li><span class="load lazyload" data-bg="{{ 'concept04.png' | asset_url }}"></span></li>                
             </ul>
             <div class="wrapper">
               <div class="wa-l"></div>
               <div class="wa-r"></div>
-              <h2 class="sec-title">CONCEPT<img class="load lazyload" data-src="{{ 'ttl_concept.png' | asset_url }}" alt="親子で" width="69" height="114"></h2>
-              <h3>親はゆっくり、子は楽しく、<br>親子にやさしいカフェ。</h3>
+              <h2 class="sec-title"><span class="sec-main-ttl">Voice</span><span class="sec-sub-ttl">わんちゃんたちの声</span></h2>
+              <h3>わんちゃんも嬉しい<br>飼い主も嬉しい</h3>
               <div class="text">
                 <div class="text-block">
-                  <p>小さなお子さまの<br>
-                    お行儀、お片付け。<br>
-                    今日は気にせず、<br>
-                    ゆっくりほっこり、<br>
-                    くつろいで。</p>
-                  <p>おいしいものを、<br>
-                    家族で、みんなで、<br>
-                    輪になって囲もう。</p>
+                  <p>
+                    栄養価が高く手軽で保存性も<br>高いドライフード。<br>ゆっくりと時間をかけ、<br>しっかりと噛んで食べることで<br>顎を健康に保ち、歯垢付着予防<br>や急激な胃の膨張による負担を<br>軽減できます。
+                  </p>
                 </div>
-                <div class="text-block">
-                  <p>そんな願いが、<br>
-                    焼きドーナツの<br>
-                    まーるい形に、<br>
-                    こめられてるとか<br>
-                    いないとか・・・</p>
-                  <p>親子カフェSTEEN、<br>
-                    新千里北町から<br>
-                    はじまります。</p>
+                <div class="voice-block">
+                  こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。<br><span>わんちゃん名</span>
                 </div>
-                <h4># OYAKO CAFE<br>
-                  # SENRICHUOU</h4>
+                <div class="voice-block">
+                  こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらに入ります。<span>わんちゃん名</span>
+                </div>
+                <div class="voice-block">
+                  こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。<span>わんちゃん名</span>
+                </div>                                
+                <h4># DOG'S VOICE</h4>
               </div>
             </div>
           </section>
 
-
           <section id="gallery">
             <div class="wrapper">
-              <div class="flex">
-                <h2 class="sec-title">GALLERY<img class="load lazyload" data-src="{{ 'ttl_gallery.png' | asset_url }}" alt="たのしむ" width="39" height="113"></h2>
-                <h3><div><span><strong>こども椅子、<br>
-                  キッズスペース、<br>
-                  おむつ台</strong>も完備。<br>
-                  こどもたちを<br>
-                  中心に考えた<br>
-                  やさしい空間作り。</span></div></h3>
-              </div>
               <div class="slider-gallery">
                 <div class="gallery-photo">
                   <div class="slide">
                     <picture>
-                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery08.jpg' | asset_url }}">
-                      <img class="g-img load lazyload" data-src="{{ 'gallery08.jpg' | asset_url }}" alt="インテリア : ">
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery01.png' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery01.png' | asset_url }}" alt=" ">
                     </picture>
                     <div class="text">
-                      <h4>INTERIOR</h4>
-                      <p>親子でも、大勢でも。子供たちは遊び、パパママは安心してくつろぐ、そんな暖かい雰囲気が漂う居心地の良い空間が魅力のカフェです。</p>
+                      <h4>ABOUT JYULL</h4>
+                      <p>JYULLについてもっと詳しく知る</p>
                     </div>
                   </div>
                   <div class="slide">
                     <picture>
-                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery01.jpg' | asset_url }}">
-                      <img class="g-img load lazyload" data-src="{{ 'gallery01.jpg' | asset_url }}" alt="エントランス : ">
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery02.png' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery02.png' | asset_url }}" alt=" ">
                     </picture>
                     <div class="text">
-                      <h4>ENTRANCE</h4>
-                      <p>明るい日差しが差し込む開放的な窓、木製のドアがお出迎え。店主お気に入りのエントランス。</p>
+                      <h4>SUBSCRIPTION</h4>
+                      <p>毎日のごはんがいつでもお得に・便利に JYULLの定期便</p>
                     </div>
-                  </div>
+                  </div>                  
                   <div class="slide">
                     <picture>
-                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery02.jpg' | asset_url }}">
-                      <img class="g-img load lazyload" data-src="{{ 'gallery02.jpg' | asset_url }}" alt="ソファとテーブル : ">
+                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery03.png' | asset_url }}">
+                      <img class="g-img load lazyload" data-src="{{ 'gallery03.png' | asset_url }}" alt="">
                     </picture>
                     <div class="text">
-                      <h4>SOFA&amp;TABLE</h4>
-                      <p>家族で囲む広いテーブルや、大勢でゆったりくつろげるソファ席もご用意。遊ぶお子さまを見ながらゆっくりとお過ごしいただけます。</p>
-                    </div>
-                  </div>
-                  <div class="slide">
-                    <picture>
-                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery03.jpg' | asset_url }}">
-                      <img class="g-img load lazyload" data-src="{{ 'gallery03.jpg' | asset_url }}" alt="キッズスペース : ">
-                    </picture>
-                    <div class="text">
-                      <h4>KIDS SPACE</h4>
-                      <p>どの座席からでもお子さまが見れるよう、キッズスペースの壁には小さな窓が開いています。お食事しながら楽しく遊ぶお子さまを見守ることができます。</p>
-                    </div>
-                  </div>
-                  <div class="slide">
-                    <picture>
-                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery04.jpg' | asset_url }}">
-                      <img class="g-img load lazyload" data-src="{{ 'gallery04.jpg' | asset_url }}" alt="カウンター : ">
-                    </picture>
-                    <div class="text">
-                      <h4>COUNTER</h4>
-                      <p>ブロック塀と木目の天板が落ち着けるバーカウンター。店主と語らうことのできるこの場所は、一人で訪れてもどこかほっと一息つくことのできるすすめの座席です。</p>
-                    </div>
-                  </div>
-                  <div class="slide">
-                    <picture>
-                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery05.jpg' | asset_url }}">
-                      <img class="g-img load lazyload" data-src="{{ 'gallery05.jpg' | asset_url }}" alt="物販スペース : ">
-                    </picture>
-                    <div class="text">
-                      <h4>GOODS</h4>
-                      <p>忙しいママだって、可愛いものやおしゃれなものが大好き。ハンドメイドで作られた、個性的なアクセサリーやステーショナリー、こどもグッズなどを販売しております。</p>
-                    </div>
-                  </div>
-                  <div class="slide">
-                    <picture>
-                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery06.jpg' | asset_url }}">
-                      <img class="g-img load lazyload" data-src="{{ 'gallery06.jpg' | asset_url }}" alt="キッチン : ">
-                    </picture>
-                    <div class="text">
-                      <h4>KITCHEN</h4>
-                      <p>明るく開放的なキッチン。タイルとスチール素材が男前なキッチンスペースです。夫婦で営む仲睦まじい姿も、実は隠れたほっこりポイント。</p>
-                    </div>
-                  </div>
-                  <div class="slide">
-                    <picture>
-                      <source media="(max-width: 414px)" data-srcset="{{ 'sp_gallery07.jpg' | asset_url }}">
-                      <img class="g-img load lazyload" data-src="{{ 'gallery07.jpg' | asset_url }}" alt="トイレ : ">
-                    </picture>
-                    <div class="text">
-                      <h4>TOILET</h4>
-                      <p>オムツ替えスペースも完備した、ゆったり広めのトイレ。お子さまの世話も快適です。</p>
+                      <h4>SALES PARTNER</h4>
+                      <p>JYULL 販売パートナー様募集</p>
                     </div>
                   </div>
                 </div>
                 <ul class="gallery-nav">
-                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery08.jpg' | asset_url }}"><span>INTERIOR</span></a></li>
-                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery01.jpg' | asset_url }}"><span>ENTRANCE</span></a></li>
-                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery02.jpg' | asset_url }}"><span>SOFA&amp;<br class="sp">TABLE</span></a></li>
-                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery03.jpg' | asset_url }}"><span>KIDS SPACE</span></a></li>
-                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery04.jpg' | asset_url }}"><span>COUNTER</span></a></li>
-                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery05.jpg' | asset_url }}"><span>GOODS</span></a></li>
-                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery06.jpg' | asset_url }}"><span>KITCHEN</span></a></li>
-                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery07.jpg' | asset_url }}"><span>TOILET</span></a></li>
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery01.png' | asset_url }}"><span>ABOUT JYULL</span></a></li>
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery02.png' | asset_url }}"><span>SUBSCRIPTION</span></a></li>
+                  <li><a href="javascript:void(0);" class="load lazyload" data-bg="{{ 'sp_gallery03.png' | asset_url }}"><span>SALES PARTNER</span></a></li>
                 </ul>
               </div>
             </div>
@@ -462,60 +407,54 @@
 
           <section id="goods">
             <div class="wrapper">
-              <div class="flex">
-                <h2 class="sec-title"><img class="load lazyload" data-src="{{ 'ttl_goods.png' | asset_url }}" alt="買う" width="46" height="58">GOODS</h2>
-                <h3>店内では忙しいママでもおしゃれを楽しめるように、<br class="pc">ハンドメイドグッズを販売しています。</h3>
-              </div>
               <div class="goods-list">
-                <div><img class="load lazyload" data-src="{{ 'good01.png' | asset_url }}" alt="スタイ"><p>スタイ</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good02.png' | asset_url }}" alt="ヘアアクセサリー"><p>ヘアアクセサリー</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good03.png' | asset_url }}" alt="豆イス"><p>豆イス</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good04.png' | asset_url }}" alt="クラフトバッグ"><p>クラフトバッグ</p></div>
-                <div class="moji"><img class="load lazyload pc" data-src="{{ 'handmade.png' | asset_url }}" alt="HANDMADE"><img class="load lazyload sp" data-src="/common/img/sp_handmade.png" alt="HANDMADE"></div>
-                <div><img class="load lazyload" data-src="{{ 'good05.png' | asset_url }}" alt="レザーケース"><p>レザーケース</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good06.png' | asset_url }}" alt="アクセサリー"><p>アクセサリー</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good07.png' | asset_url }}" alt="消しゴムハンコ"><p>消しゴムハンコ</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good08.png' | asset_url }}" alt="タオルポーチ"><p>タオルポーチ</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good01.png' | asset_url }}" alt="フード・おやつ"><p>フード・おやつ</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good02.png' | asset_url }}" alt="ハウス・キャリー"><p>ハウス・キャリー</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good03.png' | asset_url }}" alt="ペットウェア"><p>ペットウェア</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good04.png' | asset_url }}" alt="トイレ用品"><p>トイレ用品</p></div>
+                <div class="moji"><img class="load lazyload pc" data-src="{{ 'sp_select_item.png' | asset_url }}" alt="SELECT ITEM"><img class="load lazyload sp" data-src="{{ 'sp_select_item.png' | asset_url }}" alt="SELECT ITEM"></div>
+                <div><img class="load lazyload" data-src="{{ 'good05.png' | asset_url }}" alt="ペット家具"><p>ペット家具</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good06.png' | asset_url }}" alt="おもちゃ"><p>おもちゃ</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good07.png' | asset_url }}" alt="食器"><p>食器</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good08.png' | asset_url }}" alt="ギフト"><p>ギフト</p></div>
               </div>
             </div>
           </section>
 
           <section id="news">
             <div class="wrapper">
-              <h2 class="sec-title">NEWS<img class="load lazyload" data-src="{{ 'ttl_news.png' | asset_url }}" alt="知る" width="46" height="58"></h2>
+              <h2 class="sec-title"><span class="sec-main-ttl">News</span><span class="sec-sub-ttl">お知らせ</span></h2>
               <div class="load-event"></div>
 
               <div class="flex">
-                <div class="load-news"></div>
+                {% unless blogs[category].empty? or blogs[category].articles.size == 0 %}
+                     {% for article in blogs[category].articles %}
+                      <div class="news">
+                        <div class="news-cate">
+                          <p>{{ article.published_at | date: '%Y.%m.%d' }}</p>
+                          <p>NEWS</p>
+                        </div>
+                        <div class="news-body">
+                          <p class="news-photo"><a href="{{ article.url }}">
+                            <img class="load img-ofi img-full lazyloaded" src="{{ article.image }} "></a></p>
+                          <div class="news-title">
+                            <h3>{{ article.title }}</h3>
+                            <p>
+                              {{article.content.size}}
+                              {% if article.content.size >  76 %}
+                                {{ article.content | slice: 0, 76 }}...
+                              {% else %}
+                                {{ article.content }}                              
+                              {% endif %}
+                              <br><a href="{{ article.url }}">続きを読む</a></p>
+                          </div>
+                        </div>
+                      </div>
+                     {% endfor %}
+                {% endunless %}
               </div>
-
-              <p class="news-btn"><a href="archives/list.html">NEWS LIST</a></p>
             </div>
           </section>
-
-          <section id="access">
-            <div class="wrapper">
-              <h2 class="sec-title">ACCESS<img class="load lazyload" data-src="{{ 'ttl_access.png' | asset_url }}" alt="行く" width="37" height="79"></h2>
-              <div class="flex">
-                <p class="open"><img class="load lazyload" data-src="{{ 'open.png' | asset_url }}" alt="" width="300" height="259"></p>
-                <img class="load lazyload" data-src="{{ 'access.jpg' | asset_url }}" alt="CAFE STEEN 外観" width="375" height="259">
-                <div class="address">
-                  <a href="index.html"><img class="load lazyload" data-src="{{ 'logotypo.png' | asset_url }}" alt="OYAKO CAFE &amp; Donuts CAFE STEEN"></a>
-                  <address>
-                    〒560-0081 大阪府豊中市新千里北町2-20-14-105 北町近隣センター内<br>
-                    TEL. <span class="tel-linktext">06-6170-7698</span> OPEN. 10:00- 月曜定休日<br>
-                    最寄バス停：阪急バス 北町二丁目<span class="pc"> ／ </span><br class="sp">最寄駅：千里中央駅<br>
-                    駐車場あり ／ 
-                  </address>
-                  <ul class="sns">
-                    <li><a href="https://www.facebook.com/CAFE-STEEN-2138413153143535/" target="_blank"><img class="load lazyload" data-src="{{ 'fb.png' | asset_url }}" alt="facebook" width="24" height="24"></a></li>
-                    <li><a href="https://www.instagram.com/cafe_steen/" target="_blank"><img class="load lazyload" data-src="{{ 'ig.png' | asset_url }}" alt="instagram" width="24" height="24"></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
         </div>
       </div>
 
