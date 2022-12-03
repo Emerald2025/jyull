@@ -239,6 +239,15 @@
     {{ 'common.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'jquery-3.2.1.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'jquery.cookie.js' | asset_url }}" defer="defer"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('#Option-Size').addEventListener('change', function(event) {
+          const selected_size = event.currentTarget.value;
+          const hidden_input = document.querySelectorAll('option[data-size="'+selected_size+'"]');
+          document.getElementById('ProductSelect-product-template').value = hidden_input[0].value;
+        });
+      });
+    </script>     
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">    
   </head>
 
@@ -268,12 +277,12 @@
           <div class="target4"></div>
 
           <section id="header" style="background-image: url('{{ 'bg-part1.png' | asset_url }}')">
-            <div class="title">
-              <h2><img src="{{ 'top-text.png' | asset_url }}" alt="天然成分の高プロテインフードをお届け致します"></h2>
-            </div>
-            <div class="wrapper">
+            <div class="wrapper">              
               <div class="flex">
                 <div class="right">
+                  <div class="title">
+                    <h2><img src="{{ 'top-text.png' | asset_url }}" alt="天然成分の高プロテインフードをお届け致します"></h2>
+                  </div>                  
                   <div class="footprint"><img src="{{ 'bg-part2.png' | asset_url }}" alt=""></div>
                   <div class="top-slider">
                     <div class="scene-wrapper">
@@ -325,6 +334,58 @@
 
           {% section 'about-slider' %}
 
+          <section id="home-product" class="flex">
+            {%-
+              assign product = collections.all.products[0]
+            -%}
+            <div class="product_media">
+                {{ product.images[0]| img_url: '600x600' | img_tag: product.images[0].alt }}              
+            </div>            
+            <form method="post" action="/cart/add" id="product_form">
+              <h4 class="product_title">{{ product.title | escape }}</h4>
+              <p class="product_description">{{ product.description }}</h4>              
+              {%- for option in product.options_with_values -%}
+              <div class="product-form__input product-form__input--dropdown">
+                <div class="select">
+                  <select
+                    id="Option-Size"
+                    class="select__select"
+                    name="{{ option.name | escape }}"
+                  >
+                    <option>Size</option>
+                    {%- for value in option.values -%}
+                      <option
+                        value="{{ value | escape }}"
+                      >
+                        {{ value }}
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                  {% render 'icon-caret' %}
+                </div>
+              </div>
+              {%- endfor -%}
+              <div class="product-form__input product-form__input--dropdown">              
+                <select id="ProductSelect-product-template" class="product-form__variants no-js" name="id">
+                    {% for variant in product.variants %}
+                     <option value="{{variant.id}}" data-size="{{variant.title}}">{{variant.title}}</option>
+                    {% endfor %}
+                </select>
+              </div>
+              <div class="product-form__input product-form__input--dropdown">
+                <div class="select">
+                  <select id="quantity" name="quantity" class="select__select">
+                    <option>数量</option>
+                    {% for i in (1..10) %}
+                      <option value="{{i}}">{{i}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>              
+              <input type="submit" value="カートに入れる" class="btn btn-add_to_cart" />
+            </form>            
+          </section>          
+
           <section id="concept">
             <ul class="concept-slider">
               <li><span class="load lazyload" data-bg="{{ 'concept01.png' | asset_url }}"></span></li>
@@ -347,16 +408,18 @@
                     栄養価が高く手軽で保存性も<br>高いドライフード。<br>ゆっくりと時間をかけ、<br>しっかりと噛んで食べることで<br>顎を健康に保ち、歯垢付着予防<br>や急激な胃の膨張による負担を<br>軽減できます。
                   </p>
                 </div>
-                <div class="voice-block">
-                  こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。<br><span>わんちゃん名</span>
+                <div class="voice-blocks">
+                  <div class="voice-block" id="voice-block1">
+                    こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。<span>わんちゃん名</span>
+                  </div>
+                  <div class="voice-block" id="voice-block2">
+                    こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらに入ります。<span>わんちゃん名</span>
+                  </div>
+                  <div class="voice-block" id="voice-block3">
+                    こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。<span>わんちゃん名</span>
+                  </div>
+                  <h4># DOG'S VOICE</h4>                  
                 </div>
-                <div class="voice-block">
-                  こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらに入ります。<span>わんちゃん名</span>
-                </div>
-                <div class="voice-block">
-                  こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。こちらにわんちゃんの声が入ります。<span>わんちゃん名</span>
-                </div>                                
-                <h4># DOG'S VOICE</h4>
               </div>
             </div>
           </section>
@@ -408,15 +471,15 @@
           <section id="goods">
             <div class="wrapper">
               <div class="goods-list">
-                <div><img class="load lazyload" data-src="{{ 'good01.png' | asset_url }}" alt="フード・おやつ"><p>フード・おやつ</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good02.png' | asset_url }}" alt="ハウス・キャリー"><p>ハウス・キャリー</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good03.png' | asset_url }}" alt="ペットウェア"><p>ペットウェア</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good04.png' | asset_url }}" alt="トイレ用品"><p>トイレ用品</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good1.png' | asset_url }}" alt="フード・おやつ"><p>フード・おやつ</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good2.png' | asset_url }}" alt="ハウス・キャリー"><p>ハウス・キャリー</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good3.png' | asset_url }}" alt="ペットウェア"><p>ペットウェア</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good4.png' | asset_url }}" alt="トイレ用品"><p>トイレ用品</p></div>
                 <div class="moji"><img class="load lazyload pc" data-src="{{ 'sp_select_item.png' | asset_url }}" alt="SELECT ITEM"><img class="load lazyload sp" data-src="{{ 'sp_select_item.png' | asset_url }}" alt="SELECT ITEM"></div>
-                <div><img class="load lazyload" data-src="{{ 'good05.png' | asset_url }}" alt="ペット家具"><p>ペット家具</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good06.png' | asset_url }}" alt="おもちゃ"><p>おもちゃ</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good07.png' | asset_url }}" alt="食器"><p>食器</p></div>
-                <div><img class="load lazyload" data-src="{{ 'good08.png' | asset_url }}" alt="ギフト"><p>ギフト</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good5.png' | asset_url }}" alt="ペット家具"><p>ペット家具</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good6.png' | asset_url }}" alt="おもちゃ"><p>おもちゃ</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good7.png' | asset_url }}" alt="食器"><p>食器</p></div>
+                <div><img class="load lazyload" data-src="{{ 'good8.png' | asset_url }}" alt="ギフト"><p>ギフト</p></div>
               </div>
             </div>
           </section>
